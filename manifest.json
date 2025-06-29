@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "Skribbl Container Inserter",
+  "version": "1.0",
+  "description": "Consiglia le possibili parole",
+  "permissions": ["storage"],
+  "host_permissions": [
+    "https://skribbl.io/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "wordlists/**/wordlist-*.txt"
+      ],
+      "matches": ["https://skribbl.io/*"]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://skribbl.io/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "page/popup.html"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
